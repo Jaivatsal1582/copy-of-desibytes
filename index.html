@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesiBytes</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.6.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="container">
+        <main>
+            <section class="input-section" aria-labelledby="form-heading">
+                <h1 id="form-heading" class="form-heading">What Western dish are you craving?</h1>
+                <p class="form-subheading">We'll remix it into an Indian fusion just for you.</p>
+
+                <label for="dish-input" class="form-input-label">Type your dish below:</label>
+                <input type="text" id="dish-input" placeholder="e.g., Mac and Cheese, Lasagna">
+                <button id="fuse-button">Get Fusion Idea</button>
+            </section>
+
+            <section class="results-section" aria-live="polite">
+                <div id="loading-indicator" class="loading-indicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <p id="loading-text">Whipping up a fusion idea...</p>
+                </div>
+                <div id="error-message" class="error-message" style="display: none;" role="alert"></div>
+
+                <div id="output-container" style="display: none;">
+                    <div class="dish-card">
+                        <h3>Original Dish</h3>
+                        <p id="original-dish-name"></p>
+                        <p id="original-dish-fun-fact" class="fun-fact" style="display: none;"></p>
+                    </div>
+                    <div class="dish-card fusion-card">
+                        <h3 id="fusion-dish-title">DesiFusion Suggestion</h3>
+                        <img id="fusion-dish-image" src="#" alt="Generated fusion dish image" style="display: none;">
+                        <p id="fusion-dish-description"></p>
+                        
+                        <h4 id="fusion-dish-ingredients-heading" style="display: none;">Ingredients:</h4>
+                        <ul id="fusion-dish-ingredients-list"></ul>
+
+                        <h4 id="fusion-dish-recipe-heading" style="display: none;">How to Make It:</h4>
+                        <div id="fusion-dish-recipe"></div>
+
+                        <div id="fusion-dish-nutrition-container" style="display: none;">
+                            <h4 id="fusion-dish-nutrition-heading">Estimated Nutritional Information</h4>
+                            <table id="nutrition-table" aria-labelledby="fusion-dish-nutrition-heading">
+                                <thead>
+                                    <tr>
+                                        <th>Nutrient</th>
+                                        <th>Amount per serving</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="nutrition-table-body">
+                                    <!-- Nutrition data rows will be injected here by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by Gemini API</p>
+        </footer>
+    </div>
+    <script type="module" src="index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

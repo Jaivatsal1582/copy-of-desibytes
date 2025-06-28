@@ -1,0 +1,354 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F9F9F9; /* Light grayish white */
+    color: #4A4A4A; /* Default text color */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column; /* Ensure footer is at bottom if content is short */
+    align-items: center; /* Center container */
+    min-height: 100vh;
+    padding: 20px; /* Overall page padding */
+}
+
+.container {
+    background-color: transparent; /* Make container transparent */
+    box-shadow: none; /* Remove shadow for flat design */
+    width: 100%;
+    max-width: 400px; /* Max container width as per spec for input, results can be wider */
+    text-align: center;
+    padding: 0; /* Remove old padding, spacing managed by elements */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows main content to push footer down */
+}
+
+main {
+    width: 100%;
+    flex-grow: 1;
+}
+
+/* Input Section - Redesigned */
+.input-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children like button if not full width */
+}
+
+.form-heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827; /* Almost black */
+    margin-top: 60px; /* Top padding for heading */
+    margin-bottom: 10px;
+}
+
+.form-subheading {
+    font-size: 16px;
+    font-weight: 400;
+    color: #4B5563; /* Muted gray */
+    margin-bottom: 30px; /* Space before label/input area */
+}
+
+.form-input-label {
+    display: block; /* Make label take its own line */
+    font-size: 16px;
+    font-weight: 400;
+    color: #4B5563; /* Muted gray */
+    text-align: left; /* Align label text to the left */
+    margin-bottom: 8px; /* Space between label and input field */
+    width: 100%; /* Ensure it aligns with full-width input */
+}
+
+#dish-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB; /* Light gray border */
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    color: #111827; /* Explicit text color for input */
+    margin-bottom: 20px; /* Space before the submit button */
+    transition: border-color 0.3s ease;
+}
+
+#dish-input:focus {
+    border-color: #F97316; /* Vibrant Indian orange focus */
+    outline: none;
+}
+
+#fuse-button {
+    background-color: #F97316; /* Vibrant Indian orange */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Full width button */
+    font-family: 'Poppins', sans-serif;
+}
+
+#fuse-button:hover {
+    background-color: #ea580c; /* Darker orange on hover */
+    transform: translateY(-2px);
+}
+
+#fuse-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#fuse-button:active {
+    transform: translateY(0);
+}
+
+/* Results Section - Retains previous styling, hidden initially */
+.results-section {
+    margin-top: 40px; /* Space above results when they appear */
+    width: 100%;
+    max-width: 600px; /* Allow results to be a bit wider */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dish-card {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: left;
+    max-width: 100%; 
+}
+
+.dish-card h3 { /* Titles like "Original Dish", "DesiFusion Suggestion" */
+    font-family: 'Playfair Display', serif;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #E67E22;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.dish-card h4 { /* Subheadings like "How to Make It", "Estimated Nutritional Information", "Ingredients" */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #34495e;
+    margin-top: 20px; /* Increased top margin for separation */
+    margin-bottom: 10px; /* Space below h4 */
+}
+
+.dish-card p {
+    font-size: 1em;
+    color: #555;
+    white-space: pre-wrap;
+    margin-bottom: 10px;
+}
+
+.fun-fact {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-top: 10px;
+    font-size: 0.9em;
+    background-color: #eef1f2;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border-left: 3px solid #F97316;
+}
+
+.fusion-card {
+    background-color: #fffaf0; /* Light creamy background for fusion card */
+    border-left: 5px solid #D35400; /* Orange accent border */
+}
+
+.fusion-card h3 { /* "DesiFusion Suggestion" title specifically */
+     border-bottom-color: #D35400;
+     font-size: 1.5em;
+}
+
+#fusion-dish-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px auto 15px;
+    display: block;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+#fusion-dish-ingredients-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+#fusion-dish-ingredients-list li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+#fusion-dish-recipe ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+#fusion-dish-recipe ol li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Nutrition Table Styles */
+#fusion-dish-nutrition-container {
+    margin-top: 20px; /* Space above nutrition section */
+}
+
+#nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 182, 193, 0.7); /* Baby pink translucent */
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow: hidden; /* Ensures border-radius clips content */
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+#nutrition-table th,
+#nutrition-table td {
+    padding: 10px 12px; /* Cell padding */
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Light border for rows */
+}
+
+#nutrition-table th {
+    background-color: rgba(255, 182, 193, 0.85); /* Slightly less translucent header */
+    color: #4E363A; /* Darker pinkish text for contrast */
+    font-weight: 600;
+}
+
+#nutrition-table td {
+    color: #5C3A3F; /* Readable text color on pink background */
+}
+
+#nutrition-table tr:last-child td {
+    border-bottom: none; /* No border for the last row */
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #7f8c8d;
+    margin-top: 20px;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #F97316; /* Match button color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-indicator p {
+    font-size: 1em;
+}
+
+/* Error Message */
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ef9a9a;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    margin-top: auto; 
+    padding-top: 20px; 
+    padding-bottom: 20px; 
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    color: #95a5a6; 
+    border-top: 1px solid #eee; 
+}
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container { /* Ensure container max-width also applies on mobile for input consistency */
+        max-width: 100%; 
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .results-section {
+        max-width: 100%; /* Full width on mobile */
+    }
+    .form-heading {
+        font-size: 20px; 
+        margin-top: 40px;
+    }
+    .form-subheading {
+        font-size: 15px;
+    }
+    #dish-input, #fuse-button {
+        font-size: 15px;
+    }
+    .dish-card {
+        padding: 15px;
+    }
+    .fusion-card h3 {
+        font-size: 1.3em;
+    }
+    #nutrition-table th,
+    #nutrition-table td {
+        padding: 8px 10px;
+    }
+}
