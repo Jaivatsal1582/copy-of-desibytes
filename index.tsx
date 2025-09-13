@@ -4,7 +4,7 @@
 */
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 interface NutritionInfo {
     [key: string]: string; // e.g., "Calories": "Approx. 500 kcal"
