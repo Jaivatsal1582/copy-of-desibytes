@@ -116,7 +116,7 @@ Please provide an Indian fusion version. Your response MUST be a JSON object wit
 Ensure the JSON is well-formed. Provide values for nutritionInfo where appropriate, but it's okay if some nutrients are not applicable or estimable. The ingredients array should detail what's needed for the fusion dish. The funFact should be about the original dish submitted.`;
 
     const response: GenerateContentResponse = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-preview-04-17',
+        model: 'gemini-1.5-flash',
         contents: prompt,
         config: {
             responseMimeType: "application/json",
